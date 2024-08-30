@@ -170,6 +170,13 @@
 	border-radius: 5px;
 	padding: 10px;
 	margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	min-height: 100px;
+}
+
+.historyItemContent {
+	flex-grow: 1;
 }
 
 .timestamp {
@@ -223,4 +230,23 @@
 
 .rollButton:disabled {
 	background-color: #999;
+}
+
+.restoreButton {
+	align-self: flex-end;
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	background-color: #2196f3;
+	color: white;
+	border: none;
+	padding: 0.5rem 1rem;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.restoreButton:hover {
+	background-color: #1976d2;
 }

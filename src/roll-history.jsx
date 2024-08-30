@@ -3,7 +3,7 @@ import styles from "./style.module.css";
 import HistoryItem from "./history-item";
 import { FiTrash2 } from "react-icons/fi";
 
-const RollHistory = ({ history, clearHistory }) => {
+const RollHistory = ({ history, clearHistory, onRestore }) => {
 	const [isExpanded, setIsExpanded] = useState(false);
 
 	return (
@@ -24,7 +24,7 @@ const RollHistory = ({ history, clearHistory }) => {
 					</div>
 					<ul className={styles.historyList}>
 						{history.map((roll, index) => (
-							<HistoryItem key={index} roll={roll} />
+							<HistoryItem key={index} roll={roll} onRestore={onRestore} />
 						))}
 					</ul>
 				</>

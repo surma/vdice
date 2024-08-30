@@ -87,6 +87,19 @@ const DiceRoller = () => {
 		saveRollHistory([]);
 	};
 
+	const restoreDiceSet = (roll) => {
+		const restoredDiceSet = roll.results.reduce((acc, result) => {
+			const existingDice = acc.find((dice) => dice.sides === result.sides);
+			if (existingDice) {
+				existingDice.count++;
+			} else {
+				acc.push({ sides: result.sides, count: 1 });
+			}
+			return acc;
+		}, []);
+		setDiceSet(restoredDiceSet);
+	};
+
 	return (
 		<div className={styles.container}>
 			<h1>Dice Roller</h1>
@@ -168,7 +181,11 @@ const DiceRoller = () => {
 					</p>
 				</div>
 			)}
-			<RollHistory history={rollHistory} clearHistory={clearRollHistory} />
+			<RollHistory
+				history={rollHistory}
+				clearHistory={clearRollHistory}
+				onRestore={restoreDiceSet}
+			/>
 		</div>
 	);
 };
