@@ -1,8 +1,48 @@
+:root {
+	--color-primary: #4caf50;
+	--color-primary-dark: #45a049;
+	--color-secondary: #2196f3;
+	--color-secondary-dark: #1976d2;
+	--color-danger: #f44336;
+	--color-danger-dark: #d32f2f;
+	--color-white: #ffffff;
+	--color-black: #000000;
+	--color-gray-light: #f5f5f5;
+	--color-gray: #666666;
+	--color-gray-dark: #999999;
+	--color-border: #cccccc;
+	--color-background: #dddddd;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-primary: #66bb6a;
+		--color-primary-dark: #4caf50;
+		--color-secondary: #42a5f5;
+		--color-secondary-dark: #2196f3;
+		--color-danger: #ef5350;
+		--color-danger-dark: #e53935;
+		--color-white: #ffffff;
+		--color-black: #000000;
+		--color-gray-light: #424242;
+		--color-gray: #bdbdbd;
+		--color-gray-dark: #757575;
+		--color-border: #616161;
+		--color-background: #212121;
+	}
+}
+html,
+body {
+	background-color: var(--color-background);
+	color: var(--color-gray);
+}
 .container {
 	max-width: 800px;
 	margin: 0 auto;
 	padding: 20px;
 	font-family: Arial, sans-serif;
+	background-color: var(--color-background);
+	color: var(--color-gray);
 }
 
 .diceContainer {
@@ -35,29 +75,31 @@
 	font-size: 16px;
 	padding: 10px;
 	border-radius: 5px;
-	border: 1px solid #ccc;
+	border: 1px solid var(--color-border);
 	width: 100%;
 	box-sizing: border-box;
+	background-color: var(--color-gray-light);
+	color: var(--color-gray);
 }
 
 .button {
-	background-color: #4caf50;
-	color: white;
+	background-color: var(--color-primary);
+	color: var(--color-white);
 	border: none;
 	cursor: pointer;
 	flex: 1;
 }
 
 .button:hover {
-	background-color: #45a049;
+	background-color: var(--color-primary-dark);
 }
 
 .removeButton {
-	background-color: #f44336;
+	background-color: var(--color-danger);
 }
 
 .removeButton:hover {
-	background-color: #d32f2f;
+	background-color: var(--color-danger-dark);
 }
 
 .results {
@@ -80,19 +122,19 @@
 }
 
 .addButton {
-	background-color: #2196f3;
+	background-color: var(--color-secondary);
 }
 
 .addButton:hover {
-	background-color: #1976d2;
+	background-color: var(--color-secondary-dark);
 }
 
 .rollButton {
-	background-color: #4caf50;
+	background-color: var(--color-primary);
 }
 
 .rollButton:hover {
-	background-color: #45a049;
+	background-color: var(--color-primary-dark);
 }
 
 .diceAnimation {
@@ -115,8 +157,8 @@
 }
 
 .expandButton {
-	background-color: #2196f3;
-	color: white;
+	background-color: var(--color-secondary);
+	color: var(--color-white);
 	border: none;
 	padding: 10px 20px;
 	font-size: 16px;
@@ -127,7 +169,7 @@
 }
 
 .expandButton:hover {
-	background-color: #1976d2;
+	background-color: var(--color-secondary-dark);
 }
 
 .historyContent {
@@ -145,8 +187,8 @@
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
-	background-color: #f44336;
-	color: white;
+	background-color: var(--color-danger);
+	color: var(--color-white);
 	border: none;
 	padding: 0.5rem 1rem;
 	border-radius: 4px;
@@ -155,7 +197,7 @@
 }
 
 .clearButton:hover {
-	background-color: #d32f2f;
+	background-color: var(--color-danger-dark);
 }
 
 .historyList {
@@ -165,8 +207,8 @@
 }
 
 .historyItem {
-	background-color: #f5f5f5;
-	border: 1px solid #ddd;
+	background-color: var(--color-gray-light);
+	border: 1px solid var(--color-border);
 	border-radius: 5px;
 	padding: 10px;
 	margin-bottom: 10px;
@@ -181,7 +223,7 @@
 
 .timestamp {
 	font-size: 14px;
-	color: #666;
+	color: var(--color-gray);
 	display: block;
 	margin-bottom: 5px;
 }
@@ -210,8 +252,8 @@
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
-	background-color: #f44336;
-	color: white;
+	background-color: var(--color-danger);
+	color: var(--color-white);
 	border: none;
 	padding: 0.5rem 1rem;
 	border-radius: 4px;
@@ -220,7 +262,7 @@
 }
 
 .clearButton:hover {
-	background-color: #d32f2f;
+	background-color: var(--color-danger-dark);
 }
 
 .button:disabled {
@@ -229,7 +271,7 @@
 }
 
 .rollButton:disabled {
-	background-color: #999;
+	background-color: var(--color-gray-dark);
 }
 
 .restoreButton {
@@ -238,8 +280,8 @@
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
-	background-color: #2196f3;
-	color: white;
+	background-color: var(--color-secondary);
+	color: var(--color-white);
 	border: none;
 	padding: 0.5rem 1rem;
 	border-radius: 4px;
@@ -248,18 +290,18 @@
 }
 
 .restoreButton:hover {
-	background-color: #1976d2;
+	background-color: var(--color-secondary-dark);
 }
 
 .footer {
 	margin-top: 40px;
 	text-align: center;
 	font-size: 14px;
-	color: #666;
+	color: var(--color-gray);
 }
 
 .footer a {
-	color: #2196f3;
+	color: var(--color-secondary);
 	text-decoration: none;
 }
 
