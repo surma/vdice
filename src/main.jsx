@@ -1,12 +1,27 @@
 import { Component, h, render } from "preact";
-import { useState } from "preact/hooks";
+import { useState, useEffect } from "preact/hooks";
 import { FiTrash2 } from "react-icons/fi";
 import { HiPlus } from "react-icons/hi";
+import { get, set } from "idb-keyval";
 import styles from "./style.module.css";
 
 const DiceRoller = () => {
 	const [diceResults, setDiceResults] = useState([]);
 	const [diceSet, setDiceSet] = useState([{ sides: 6, count: 1 }]);
+
+	useEffect(() => {
+		// Load saved dice configuration
+		get("diceConfig").then((savedConfig) => {
+			if (savedConfig) {
+				setDiceSet(savedConfig);
+			}
+		});
+	}, []);
+
+	useEffect(() => {
+		// Save dice configuration whenever it changes
+		set("diceConfig", diceSet);
+	}, [diceSet]);
 
 	const addDice = () => {
 		setDiceSet([...diceSet, { sides: 6, count: 1 }]);
