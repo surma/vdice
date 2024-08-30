@@ -186,6 +186,25 @@ const DiceRoller = () => {
 				clearHistory={clearRollHistory}
 				onRestore={restoreDiceSet}
 			/>
+			<footer className={styles.footer}>
+				Made with 🎲 by{" "}
+				<a
+					href="https://x.com/DasSurma"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Surma
+				</a>
+				. Source on{" "}
+				<a
+					href="https://github.com/surma/vdice"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					GitHub
+				</a>
+				.
+			</footer>
 		</div>
 	);
 };

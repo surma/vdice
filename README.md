@@ -37,6 +37,10 @@ VDice is a simple, interactive dice roller web application built with Preact. It
 
 Try VDice now at [vdice.surma.technology](https://vdice.surma.technology)!
 
+## Source Code
+
+The source code for this project is available on GitHub: [surma/vdice](https://github.com/surma/vdice)
+
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
