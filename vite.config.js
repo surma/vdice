@@ -7,7 +7,6 @@ export default defineConfig({
 		preact(),
 		VitePWA({
 			registerType: "autoUpdate",
-			includeAssets: ["favicon.ico", "apple-touch-icon.png", "masked-icon.svg"],
 			manifest: {
 				name: "VDice",
 				short_name: "VDice",
@@ -15,14 +14,30 @@ export default defineConfig({
 				theme_color: "#ffffff",
 				icons: [
 					{
-						src: "pwa-192x192.png",
-						sizes: "192x192",
-						type: "image/png",
-					},
-					{
-						src: "pwa-512x512.png",
+						src: "512.png",
 						sizes: "512x512",
 						type: "image/png",
+						purpose: "any",
+					},
+					{
+						src: "192.png",
+						sizes: "192x192",
+						type: "image/png",
+						purpose: "any",
+					},
+				],
+				screenshots: [
+					{
+						src: "screenshot_mobile.png",
+						type: "image/png",
+						sizes: "1082x2402",
+						form_factor: "narrow",
+					},
+					{
+						src: "screenshot_wide.png",
+						type: "image/png",
+						sizes: "1920x1080",
+						form_factor: "wide",
 					},
 				],
 			},
