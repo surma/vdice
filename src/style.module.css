@@ -122,10 +122,40 @@
 	font-size: 16px;
 	cursor: pointer;
 	border-radius: 5px;
+	width: 100%;
+	text-align: left;
 }
 
 .expandButton:hover {
 	background-color: #1976d2;
+}
+
+.historyContent {
+	margin-top: 10px;
+}
+
+.rollHistoryHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.clearButton {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	background-color: #f44336;
+	color: white;
+	border: none;
+	padding: 0.5rem 1rem;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.clearButton:hover {
+	background-color: #d32f2f;
 }
 
 .historyList {
@@ -160,4 +190,28 @@
 
 .rollTotal {
 	font-weight: bold;
+}
+
+.rollHistoryHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.clearButton {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	background-color: #f44336;
+	color: white;
+	border: none;
+	padding: 0.5rem 1rem;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.clearButton:hover {
+	background-color: #d32f2f;
 }

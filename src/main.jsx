@@ -74,6 +74,18 @@ const DiceRoller = () => {
 		updateDice(index, "sides", value);
 	};
 
+	// Load saved roll history
+	get("rollHistory").then((savedHistory) => {
+		if (savedHistory) {
+			setRollHistory(savedHistory);
+		}
+	});
+
+	const clearRollHistory = () => {
+		setRollHistory([]);
+		saveRollHistory([]);
+	};
+
 	return (
 		<div className={styles.container}>
 			<h1>Dice Roller</h1>
@@ -155,7 +167,7 @@ const DiceRoller = () => {
 					</p>
 				</div>
 			)}
-			<RollHistory history={rollHistory} />
+			<RollHistory history={rollHistory} clearHistory={clearRollHistory} />
 		</div>
 	);
 };
