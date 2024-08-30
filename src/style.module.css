@@ -1,0 +1,100 @@
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+	font-family: Arial, sans-serif;
+}
+
+.diceContainer {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr auto;
+	gap: 10px;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.diceRow {
+	display: contents;
+}
+
+.buttonContainer {
+	display: flex;
+	gap: 10px;
+	margin-top: 20px;
+}
+
+.columnHeader {
+	font-weight: bold;
+	text-align: left;
+	padding: 0 0 10px 0;
+}
+
+.select,
+.input,
+.button {
+	font-size: 16px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.button {
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	cursor: pointer;
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.button:hover {
+	background-color: #45a049;
+}
+
+.removeButton {
+	background-color: #f44336;
+}
+
+.removeButton:hover {
+	background-color: #d32f2f;
+}
+
+.results {
+	margin-top: 30px;
+}
+
+.resultsList {
+	list-style-type: none;
+	padding: 0;
+}
+
+.resultItem {
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+
+.total {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.addButton {
+	background-color: #2196f3;
+}
+
+.addButton:hover {
+	background-color: #1976d2;
+}
+
+.rollButton {
+	background-color: #4caf50;
+}
+
+.rollButton:hover {
+	background-color: #45a049;
+}
