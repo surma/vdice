@@ -18,6 +18,8 @@ const DiceAnimation = ({ isRolling, onAnimationComplete }) => {
 			}, 100); // 100ms per frame
 
 			return () => clearInterval(interval);
+		} else {
+			setFrame(0);
 		}
 	}, [isRolling, onAnimationComplete]);
 

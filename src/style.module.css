@@ -215,3 +215,12 @@
 .clearButton:hover {
 	background-color: #d32f2f;
 }
+
+.button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.rollButton:disabled {
+	background-color: #999;
+}

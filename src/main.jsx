@@ -24,6 +24,13 @@ const DiceRoller = () => {
 				setDiceSet(savedConfig);
 			}
 		});
+
+		// Load saved roll history
+		get("rollHistory").then((savedHistory) => {
+			if (savedHistory) {
+				setRollHistory(savedHistory);
+			}
+		});
 	}, []);
 
 	useEffect(() => {
@@ -46,6 +53,7 @@ const DiceRoller = () => {
 	};
 
 	const rollDice = () => {
+		setDiceResults([]);
 		setIsRolling(true);
 	};
 
@@ -73,13 +81,6 @@ const DiceRoller = () => {
 	const handleSidesChange = (index, value) => {
 		updateDice(index, "sides", value);
 	};
-
-	// Load saved roll history
-	get("rollHistory").then((savedHistory) => {
-		if (savedHistory) {
-			setRollHistory(savedHistory);
-		}
-	});
 
 	const clearRollHistory = () => {
 		setRollHistory([]);
