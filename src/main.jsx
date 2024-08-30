@@ -1,3 +1,5 @@
+import { registerSW } from "virtual:pwa-register";
+
 import { Component, h, render } from "preact";
 import { useState, useEffect, useCallback } from "preact/hooks";
 import { FiTrash2 } from "react-icons/fi";
@@ -6,6 +8,10 @@ import { get, set } from "idb-keyval";
 import styles from "./style.module.css";
 import DiceAnimation from "./dice-animation";
 import RollHistory from "./roll-history";
+
+if ("serviceWorker" in navigator) {
+	registerSW();
+}
 
 const DiceRoller = () => {
 	const [diceResults, setDiceResults] = useState([]);

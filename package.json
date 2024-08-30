@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "vite build",
-    "start": "vite dev"
+    "build": "vite build && npm run generate-sw",
+    "start": "vite dev",
+    "generate-sw": "vite build --mode production && workbox generateSW workbox-config.cjs"
   },
   "author": "Surma <surma@surma.dev>",
   "license": "MIT",
@@ -14,5 +15,8 @@
     "preact": "^10.23.2",
     "react-icons": "^5.3.0",
     "vite": "^5.4.2"
+  },
+  "devDependencies": {
+    "vite-plugin-pwa": "^0.20.2"
   }
 }
