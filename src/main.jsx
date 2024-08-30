@@ -1,15 +1,21 @@
 import { Component, h, render } from "preact";
-import { useState, useEffect } from "preact/hooks";
+import { useState, useEffect, useCallback } from "preact/hooks";
 import { FiTrash2 } from "react-icons/fi";
 import { HiPlus } from "react-icons/hi";
 import { get, set } from "idb-keyval";
 import styles from "./style.module.css";
 import DiceAnimation from "./dice-animation";
+import RollHistory from "./roll-history";
 
 const DiceRoller = () => {
 	const [diceResults, setDiceResults] = useState([]);
 	const [diceSet, setDiceSet] = useState([{ sides: 6, count: 1 }]);
 	const [isRolling, setIsRolling] = useState(false);
+	const [rollHistory, setRollHistory] = useState([]);
+
+	const saveRollHistory = useCallback((history) => {
+		set("rollHistory", history);
+	}, []);
 
 	useEffect(() => {
 		// Load saved dice configuration
@@ -23,7 +29,7 @@ const DiceRoller = () => {
 	useEffect(() => {
 		// Save dice configuration whenever it changes
 		set("diceConfig", diceSet);
-	}, [diceSet]);
+	}, [diceSet, saveRollHistory]);
 
 	const addDice = () => {
 		setDiceSet([...diceSet, { sides: 6, count: 1 }]);
@@ -52,6 +58,16 @@ const DiceRoller = () => {
 			})),
 		);
 		setDiceResults(results);
+
+		// Add current roll to history
+		const newRoll = {
+			timestamp: new Date().toISOString(),
+			results: results,
+			total: results.reduce((sum, result) => sum + result.result, 0),
+		};
+		const updatedHistory = [newRoll, ...rollHistory.slice(0, 99)];
+		setRollHistory(updatedHistory);
+		saveRollHistory(updatedHistory);
 	};
 
 	const handleSidesChange = (index, value) => {
@@ -139,6 +155,7 @@ const DiceRoller = () => {
 					</p>
 				</div>
 			)}
+			<RollHistory history={rollHistory} />
 		</div>
 	);
 };
