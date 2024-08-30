@@ -4,10 +4,12 @@ import { FiTrash2 } from "react-icons/fi";
 import { HiPlus } from "react-icons/hi";
 import { get, set } from "idb-keyval";
 import styles from "./style.module.css";
+import DiceAnimation from "./dice-animation";
 
 const DiceRoller = () => {
 	const [diceResults, setDiceResults] = useState([]);
 	const [diceSet, setDiceSet] = useState([{ sides: 6, count: 1 }]);
+	const [isRolling, setIsRolling] = useState(false);
 
 	useEffect(() => {
 		// Load saved dice configuration
@@ -38,6 +40,11 @@ const DiceRoller = () => {
 	};
 
 	const rollDice = () => {
+		setIsRolling(true);
+	};
+
+	const handleAnimationComplete = () => {
+		setIsRolling(false);
 		const results = diceSet.flatMap(({ sides, count }) =>
 			Array.from({ length: count }, () => ({
 				sides,
@@ -108,10 +115,15 @@ const DiceRoller = () => {
 				<button
 					className={`${styles.button} ${styles.rollButton}`}
 					onClick={rollDice}
+					disabled={isRolling}
 				>
 					Roll Dice
 				</button>
 			</div>
+			<DiceAnimation
+				isRolling={isRolling}
+				onAnimationComplete={handleAnimationComplete}
+			/>
 			{diceResults.length > 0 && (
 				<div className={styles.results}>
 					<h2>Results:</h2>
